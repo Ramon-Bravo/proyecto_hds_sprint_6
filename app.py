@@ -18,8 +18,14 @@ if hist_button: # al hacer clic en el botón
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
 
+scatter_button = st.button('Construir Scatter') # crear un botón
 
-build_histogram = st.checkbox('Construir un histograma')
+if scatter_button: # al hacer clic en el botón
+    # escribir un mensaje
+    st.write('Creación de un gráfico de disperción para el conjunto de datos de anuncios de venta de coches')
 
-if build_histogram: # si la casilla de verificación está seleccionada
-    st.write('Construir un histograma para la columna odómetro')
+    # crear un histograma
+    fig = px.scatter(car_data, x="odometer", y="price")
+
+    # mostrar un gráfico Plotly interactivo
+    st.plotly_chart(fig, use_container_width=True)
